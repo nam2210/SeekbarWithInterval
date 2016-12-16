@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         intervals.add("bbb");
         intervals.add("ccc");
         intervals.add("ddd");
+        intervals.add("eee");
         mSeekBarWithIntervals.setIntervals(intervals);
     }
 }
