@@ -75,6 +75,20 @@ public class SeekBarWithLabels extends LinearLayout {
         }
     }
 
+    public void setIntervals(List<String> intervals) {
+        numberOfIntervals = intervals.size();
+        displayIntervals(intervals);
+        if (isIntervals) {
+            getSeekBar().setMax(intervals.size()-1);
+        } else {
+            getSeekBar().setMax(max);
+        }
+    }
+
+    public void setOnSeekbarChangeListener(SeekBar.OnSeekBarChangeListener listener) {
+        mSeekBar.setOnSeekBarChangeListener(listener);
+    }
+
 
     private void alignIntervals() {
         //the location of the first interval is too far left - it needs to start at the middle of the thumb
@@ -149,17 +163,6 @@ public class SeekBarWithLabels extends LinearLayout {
     }
 
     private int numberOfIntervals = 0;
-
-    public void setIntervals(List<String> intervals) {
-        numberOfIntervals = intervals.size();
-        displayIntervals(intervals);
-        if (isIntervals) {
-            getSeekBar().setMax(intervals.size()-1);
-        } else {
-            getSeekBar().setMax(max);
-        }
-
-    }
 
     private void displayIntervals(List<String> intervals) {
         int idOfPreviousInterval = 0;
